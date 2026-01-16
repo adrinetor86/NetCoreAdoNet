@@ -58,6 +58,7 @@
             btnInsert.TabIndex = 1;
             btnInsert.Text = "Insertar";
             btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
             // 
             // btnUpdate
             // 
@@ -67,6 +68,7 @@
             btnUpdate.TabIndex = 2;
             btnUpdate.Text = "Modificar";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnEliminar
             // 
@@ -76,6 +78,7 @@
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // lstDepartamentos
             // 

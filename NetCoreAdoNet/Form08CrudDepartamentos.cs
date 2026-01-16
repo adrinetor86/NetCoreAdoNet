@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetCoreAdoNet
@@ -29,11 +30,39 @@ namespace NetCoreAdoNet
             foreach (Departamento dept in departamentos)
             {
                 this.lstDepartamentos.Items.Add(
-                    dept.IdDepartamento +" - "+
-                    dept.Nombre +" - "+
-                    dept.Localidad 
+                    dept.IdDepartamento + " - " +
+                    dept.Nombre + " - " +
+                    dept.Localidad
                     );
             }
+        }
+
+        private async void btnInsert_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.txtId.Text);
+            string nombre = this.txtNombre.Text;
+            string localidad = this.txtLocalidad.Text;
+
+            await this.repo.CreateDepartamentoAsync(id,nombre,localidad);
+            await this.LoadDepartamentos();
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.txtId.Text);
+            string nombre = this.txtNombre.Text;
+            string localidad = this.txtLocalidad.Text;
+
+            await this.repo.UpdateDepartamentoAsync(id,nombre,localidad);
+            await this.LoadDepartamentos();
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.txtId.Text);
+
+            await this.repo.DeleteDepartamentoAsync(id);
+            await this.LoadDepartamentos();
         }
     }
 }
