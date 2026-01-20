@@ -1,4 +1,5 @@
-﻿using NetCoreAdoNet.Repositories;
+﻿using NetCoreAdoNet.Models;
+using NetCoreAdoNet.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,10 +43,12 @@ namespace NetCoreAdoNet
                 {
                     this.lstEmpleados.Items.Add(ape);
                 }
-                 
-                this.lblSumaSalarial.Text= "SUMA SALARIAL: "+ await this.repo.GetSumaSalarioByOficioAsync(oficio);
-                this.lblMedia.Text= "MEDIA SALARIAL: " + await this.repo.GetMediaSalarioByOficioAsync(oficio);
-                this.lblMax.Text= "MAXIMO SALARIO: " + await this.repo.GetMaxSalarioByOficioAsync(oficio);
+                DatosEmpleado datos= await this.repo.GetDatosEmpleadosAsync(oficio);
+                this.lblSumaSalarial.Text = "SUMA SALARIAL: " + datos.SumaSalarial.ToString();
+                this.lblMedia.Text = "MEDIA SALARIAL: " + datos.MediaSalarial.ToString();
+                this.lblMax.Text = "MAXIMO SALARIO: " + datos.MaximoSalario.ToString();
+
+                
             }
         }
 
@@ -56,6 +59,11 @@ namespace NetCoreAdoNet
             int registros = await this.repo.UpdateSalarioEmpleadosAsync(oficio,incremento);
             
             MessageBox.Show("Nº registros: " + registros);
+            DatosEmpleado datos = await this.repo.GetDatosEmpleadosAsync(oficio);
+            this.lblSumaSalarial.Text = "SUMA SALARIAL: " + datos.SumaSalarial.ToString();
+            this.lblMedia.Text = "MEDIA SALARIAL: " + datos.MediaSalarial.ToString();
+            this.lblMax.Text = "MAXIMO SALARIO: " + datos.MaximoSalario.ToString();
+
         }
     }
 }

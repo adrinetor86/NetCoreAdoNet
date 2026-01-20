@@ -20,7 +20,12 @@ namespace NetCoreAdoNet
            // Application.Run(new Form07DepartamentoEmpleados());
             //Application.Run(new Form08CrudDepartamentos());
             //Application.Run(new Form09CrudHospital());
-            Application.Run(new Form10UpdateEmpleadosOficio());
+           // Application.Run(new Form10UpdateEmpleadosOficio());
+            //Application.Run(new Form11ProcedimientosHospitalPlantilla());
+           // Application.Run(new Form12MensajeServidor());
+            //Application.Run(new Form13ParametrosSalida());
+           // Application.Run(new Form14Settings());
+           Application.Run(new Form14Settings());
         }
     }
 }
