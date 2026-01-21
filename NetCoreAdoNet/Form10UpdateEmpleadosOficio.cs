@@ -33,7 +33,7 @@ namespace NetCoreAdoNet
         private async void lstOficios_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = this.lstOficios.SelectedIndex;
-            if(index != -1)
+            if (index != -1)
             {
                 string oficio = this.lstOficios.SelectedItem.ToString();
                 List<string> apellidos = await this.repo.GetEmpleadosByOficioAsync(oficio);
@@ -43,12 +43,12 @@ namespace NetCoreAdoNet
                 {
                     this.lstEmpleados.Items.Add(ape);
                 }
-                DatosEmpleado datos= await this.repo.GetDatosEmpleadosAsync(oficio);
+                DatosEmpleado datos = await this.repo.GetDatosEmpleadosAsync(oficio);
                 this.lblSumaSalarial.Text = "SUMA SALARIAL: " + datos.SumaSalarial.ToString();
                 this.lblMedia.Text = "MEDIA SALARIAL: " + datos.MediaSalarial.ToString();
                 this.lblMax.Text = "MAXIMO SALARIO: " + datos.MaximoSalario.ToString();
 
-                
+
             }
         }
 
@@ -56,13 +56,18 @@ namespace NetCoreAdoNet
         {
             int incremento = int.Parse(this.txtSubida.Text);
             string oficio = this.lstOficios.SelectedItem.ToString();
-            int registros = await this.repo.UpdateSalarioEmpleadosAsync(oficio,incremento);
-            
+            int registros = await this.repo.UpdateSalarioEmpleadosAsync(oficio, incremento);
+
             MessageBox.Show("Nº registros: " + registros);
             DatosEmpleado datos = await this.repo.GetDatosEmpleadosAsync(oficio);
             this.lblSumaSalarial.Text = "SUMA SALARIAL: " + datos.SumaSalarial.ToString();
             this.lblMedia.Text = "MEDIA SALARIAL: " + datos.MediaSalarial.ToString();
             this.lblMax.Text = "MAXIMO SALARIO: " + datos.MaximoSalario.ToString();
+
+        }
+
+        private void lstEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

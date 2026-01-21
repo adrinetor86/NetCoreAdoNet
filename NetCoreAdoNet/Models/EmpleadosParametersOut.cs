@@ -11,7 +11,6 @@ namespace NetCoreAdoNet.Models
         public int MediaSalarial { get; set; }
         public int Personas { get; set; }
 
-
         public EmpleadosParametersOut()
         {
             this.Apellidos = new List<string>();

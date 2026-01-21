@@ -130,6 +130,7 @@
             lstEmpleados.Name = "lstEmpleados";
             lstEmpleados.Size = new Size(120, 229);
             lstEmpleados.TabIndex = 9;
+            lstEmpleados.SelectedIndexChanged += lstEmpleados_SelectedIndexChanged;
             // 
             // txtSubida
             // 

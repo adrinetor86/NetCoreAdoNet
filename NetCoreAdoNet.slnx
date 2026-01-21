@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="AdoNetPracticaFinal/AdoNetPracticaFinal.csproj" Id="0e1418b0-9339-4142-a5da-bd457d6df731" />
   <Project Path="AdoNetPracticaMartes/AdoNetPracticaMartes.csproj" Id="8bb8d1fa-cb45-4a28-9906-3182fb148b3f" />
   <Project Path="NetCoreAdoNet/NetCoreAdoNet.csproj" />
 </Solution>
